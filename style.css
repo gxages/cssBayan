@@ -1,9 +1,10 @@
 .accordion{
-
+    
 }
 .accordion-item{
     position: relative;
     margin-bottom: 20px;
+
 }
 .accordion-item__input{
 position: absolute;
@@ -15,10 +16,25 @@ opacity: 0;
     display: block;
     padding: 20px;
     border:1px solid black ;
+    border-style: none none solid none;
     cursor: pointer;
+    transition-duration: 0.5ms;
 }
-.box-acc:hover{
-    color: aqua;
+
+.box-acc:hover {
+    transition-duration: 0.5ms;
+    color: blue;
+    font-weight: bold;
+    transition-property: font-size;
+    transition-duration: 4s;
+    transition-delay: 2s;
+    font-size: 18px;
+}
+
+.box-acc:hover  .accordion-item__trigger::after{
+    content: '\02795';
+    float: right;
+    margin-left: 5px;
 }
 /* .wrapper:hover{
     color: red;
@@ -30,22 +46,32 @@ opacity: 0;
 .accordion-item__trigger:hover::after{
     content: '\02795';
     font-size: 16px;
-    color: #777;
+    color:blanchedalmond;
     float: right;
     margin-left: 5px;
-}
-.accordion-item__input:checked ~ .accordion-item__trigger:hover:after {
-    content: '\2796';  
+  }
+  .accordion-item__trigger:hover,:focus{
+    background-color: blanchedalmond;
+  }
+.accordion-item__input:checked ~ .accordion-item__trigger:hover:after ,  .box-acc:hover{
+    content: '\2796'; 
+ 
 }
 .accordion-item__content{
     padding: 20px;
-    border:1px solid black ;
+    /* border:1px solid black ; */
     border-top: none;
     display: none; 
+    transition-duration: 0.5ms;
+
 }
-.accordion-item__input:checked ~ .accordion-item__trigger{}
+.accordion-item__input:checked ~ .accordion-item__trigger{
+    
+}
 .accordion-item__input:checked ~ .accordion-item__content{
     display: block;
+    
+
 }
 .wrapp_mem{
     display: flex;
@@ -53,6 +79,7 @@ opacity: 0;
     justify-content: center;
 }
 .wrapper{
+    width: 560px;
     max-width: 1440px;
     margin: auto;
     padding-left: 109px;
@@ -60,7 +87,7 @@ opacity: 0;
 }
 
 h1{
-    text-align: center;
+    text-align: left;
 }
 
 @media only screen and (max-width:320px){
@@ -92,3 +119,13 @@ h1{
         font-size: 13px;
     }
 }
+.accordion-item__content{
+    transform: translateX(-150%);
+    animation: ani 1s forwards;
+    cursor: pointer;
+  }
+  
+  @keyframes ani {
+    0% {transform: translateY(-150%);}
+    100% {transform: translateX(0);}
+  }
